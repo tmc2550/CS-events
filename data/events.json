@@ -1,0 +1,62 @@
+[
+    {
+          "id": "politico-6g-0318",
+          "name": "POLITICO Policy Outlook: Powering 6G",
+          "host": "POLITICO Live",
+          "date": "2026-03-18",
+          "time": "",
+          "location": "Washington, DC",
+          "type": "briefing",
+          "city": "dc",
+          "link": "https://www.politico.com/live-events",
+          "notes": "Telecom/tech policy briefing. Relevant for tech-adjacent clients."
+    },
+    {
+          "id": "politico-cera-0322",
+          "name": "POLITICO Pub at CERAWeek",
+          "host": "POLITICO Live",
+          "date": "2026-03-22",
+          "time": "",
+          "location": "Houston, TX",
+          "type": "reception",
+          "city": "other",
+          "link": "https://www.politico.com/live-events",
+          "notes": "Energy policy reception at CERAWeek. Good energy sector networking."
+    },
+    {
+          "id": "politico-economy-0325",
+          "name": "POLITICO's Economy Summit",
+          "host": "POLITICO Live",
+          "date": "2026-03-25",
+          "time": "",
+          "location": "Washington, DC",
+          "type": "conference",
+          "city": "dc",
+          "link": "https://www.politico.com/live-events",
+          "notes": "Economic policy summit. Relevant for Carta, Albertsons, and fintech clients."
+    },
+    {
+          "id": "agripulse-summit-tbd",
+          "name": "Agri-Pulse Ag & Food Policy Summit",
+          "host": "Agri-Pulse",
+          "date": "2026-03-23",
+          "time": "",
+          "location": "National Press Club, Washington, DC",
+          "type": "conference",
+          "city": "dc",
+          "link": "https://www.agri-pulse.com/events",
+          "notes": "Speakers include House Ag Chair GT Thompson, Senate Ag Chair Boozman, Ranking Member Klobuchar. Relevant for Albertsons/ACI farm bill and food policy work."
+    },
+    {
+          "id": "politico-health-0421",
+          "name": "POLITICO's Health Care Summit",
+          "host": "POLITICO Live",
+          "date": "2026-04-21",
+          "time": "",
+          "location": "Washington, DC",
+          "type": "conference",
+          "city": "dc",
+          "link": "https://www.politico.com/live-events",
+          "notes": "Health care policy summit. Highly relevant for Alliance for Care at Home client."
+    }
+]
