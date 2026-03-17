@@ -6,7 +6,7 @@
 <title>Cogent Events Dashboard</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   :root {
     --bg: #fafaf8;
     --surface: #ffffff;
@@ -23,9 +23,9 @@
     --font: 'DM Sans', system-ui, sans-serif;
     --font-mono: 'DM Mono', monospace;
   }
-
+ 
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400&display=swap');
-
+ 
   body {
     font-family: var(--font);
     background: var(--bg);
@@ -34,7 +34,7 @@
     font-size: 15px;
     line-height: 1.5;
   }
-
+ 
   /* Layout */
   .site-header {
     background: var(--surface);
@@ -61,20 +61,20 @@
     color: var(--text-2);
   }
   .wordmark span { color: var(--text); }
-
+ 
   .last-updated {
     font-size: 12px;
     color: var(--text-3);
     font-family: var(--font-mono);
   }
-
+ 
   .main { max-width: 1100px; margin: 0 auto; padding: 2rem; }
-
+ 
   /* Page title */
   .page-title { margin-bottom: 1.75rem; }
   .page-title h1 { font-size: 26px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 4px; }
   .page-title p { font-size: 14px; color: var(--text-2); }
-
+ 
   /* Stats row */
   .stats {
     display: grid;
@@ -90,7 +90,7 @@
   }
   .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); margin-bottom: 4px; }
   .stat-val { font-size: 24px; font-weight: 300; color: var(--text); letter-spacing: -0.02em; }
-
+ 
   /* Filters */
   .controls {
     display: flex;
@@ -141,10 +141,10 @@
     background-size: contain;
     background-repeat: no-repeat;
   }
-
+ 
   /* Event cards */
   .events-list { display: flex; flex-direction: column; gap: 6px; }
-
+ 
   .event-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -160,7 +160,7 @@
     border-color: var(--border-strong);
     box-shadow: 0 1px 8px rgba(0,0,0,0.05);
   }
-
+ 
   .date-col {
     text-align: center;
     background: var(--surface-2);
@@ -170,13 +170,13 @@
   }
   .date-mon { font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3); font-weight: 500; }
   .date-day { font-size: 22px; font-weight: 300; color: var(--text); line-height: 1.1; letter-spacing: -0.02em; }
-
+ 
   .event-body { min-width: 0; }
   .event-name { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .event-host { font-size: 12px; color: var(--text-2); margin-bottom: 7px; }
   .event-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
   .meta-piece { font-size: 12px; color: var(--text-3); display: flex; align-items: center; gap: 4px; }
-
+ 
   .badge {
     font-size: 10px;
     font-weight: 500;
@@ -192,9 +192,9 @@
   .badge-briefing     { background: #eeecfc; color: #3c2e8a; }
   .badge-other        { background: var(--surface-2); color: var(--text-2); }
   .badge-nyc          { background: var(--surface-2); color: var(--text-2); }
-
+ 
   .event-actions { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex-shrink: 0; }
-
+ 
   .btn-register {
     font-family: var(--font);
     font-size: 12px;
@@ -211,7 +211,7 @@
     white-space: nowrap;
   }
   .btn-register:hover { background: var(--surface-2); }
-
+ 
   .btn-cal {
     font-family: var(--font);
     font-size: 11px;
@@ -227,7 +227,7 @@
     display: inline-block;
   }
   .btn-cal:hover { border-color: var(--border-strong); color: var(--text); background: var(--surface-2); }
-
+ 
   /* Calendar disclaimer modal */
   .cal-modal-bg { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.35); z-index:200; align-items:center; justify-content:center; }
   .cal-modal-bg.open { display:flex; }
@@ -239,9 +239,9 @@
   .cal-modal-footer a { font-size:13px; font-weight:500; padding:7px 14px; border-radius:var(--radius-sm); border:1px solid var(--border-strong); background:var(--surface); color:var(--text); cursor:pointer; text-decoration:none; transition:background 0.12s; }
   .cal-modal-footer a:hover { background:var(--surface-2); }
   .cal-modal-footer button { font-size:13px; padding:7px 14px; border-radius:var(--radius-sm); border:1px solid var(--border); background:transparent; color:var(--text-2); cursor:pointer; }
-
+ 
   .no-link { font-size: 11px; color: var(--text-3); font-style: italic; }
-
+ 
   /* Empty state */
   .empty {
     text-align: center;
@@ -253,15 +253,15 @@
   .empty h3 { font-size: 15px; font-weight: 500; margin-bottom: 8px; color: var(--text); }
   .empty p { font-size: 13px; line-height: 1.6; max-width: 360px; margin: 0 auto; }
   .empty code { font-family: var(--font-mono); font-size: 12px; background: var(--surface-2); padding: 1px 6px; border-radius: 4px; }
-
+ 
   /* Event notes */
   .event-notes { font-size: 11px; color: var(--text-3); font-style: italic; margin-top: 4px; }
-
+ 
   /* Past events */
   .event-card.past { opacity: 0.5; }
   .event-card.past .date-col { background: var(--surface-2); }
   .past-divider { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3); padding: 12px 0 6px; font-weight: 500; }
-
+ 
   /* Responsive */
   @media (max-width: 600px) {
     .main { padding: 1rem; }
@@ -275,26 +275,26 @@
 </style>
 </head>
 <body>
-
+ 
 <header class="site-header">
   <div class="header-inner">
     <div class="wordmark">Cogent <span>Events</span></div>
     <div class="last-updated" id="last-updated"></div>
   </div>
 </header>
-
+ 
 <main class="main">
   <div class="page-title">
     <h1>Upcoming Events</h1>
     <p>Washington, DC · Virtual · Out of Town · Networking, conferences, briefings, and fundraisers</p>
   </div>
-
+ 
   <div class="stats">
     <div class="stat"><div class="stat-label">This week</div><div class="stat-val" id="s-week">—</div></div>
     <div class="stat"><div class="stat-label">This month</div><div class="stat-val" id="s-month">—</div></div>
     <div class="stat"><div class="stat-label">Fundraisers</div><div class="stat-val" id="s-fundraisers">—</div></div>
   </div>
-
+ 
   <div class="controls">
     <button class="chip active" data-type="all" onclick="setType('all',this)">All</button>
     <button class="chip" data-type="reception" onclick="setType('reception',this)">Receptions</button>
@@ -313,10 +313,10 @@
       <input type="text" id="search" placeholder="Search events…" oninput="render()">
     </div>
   </div>
-
+ 
   <div class="events-list" id="events-list"></div>
 </main>
-
+ 
 <div class="cal-modal-bg" id="cal-modal-bg">
   <div class="cal-modal">
     <h3>Before you add to your calendar</h3>
@@ -327,7 +327,7 @@
     </div>
   </div>
 </div>
-
+ 
 <script>
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const TYPE_LABELS = {
@@ -335,14 +335,14 @@ const TYPE_LABELS = {
   fundraiser: 'Fundraiser', 'happy-hour': 'Happy hour',
   briefing: 'Briefing', other: 'Other'
 };
-
+ 
 let allEvents = [];
 let filterType = 'all';
 let filterLoc = 'all';
 let showPast = false;
-
+ 
 function isPast(d) { return new Date(d + 'T23:59:59') < new Date(); }
-
+ 
 function makeICS(e) {
   const pad = n => String(n).padStart(2,'0');
   const dt = new Date(e.date + 'T' + (e.time || '09:00') + ':00');
@@ -364,7 +364,7 @@ function makeICS(e) {
     'END:VEVENT','END:VCALENDAR'
   ].join('\r\n');
 }
-
+ 
 let pendingICS = null;
 function openCal(id) {
   const e = allEvents.find(x => x.id === id);
@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ev.target === this) closeCal();
   });
 });
-
+ 
 function mon(d) { return MONTHS[+d.split('-')[1] - 1]; }
 function day(d) { return +d.split('-')[2]; }
 function fmt(t) {
@@ -409,35 +409,35 @@ function toggleSave(id) {
   localStorage.setItem('cg-saved', JSON.stringify(saved));
   render();
 }
-
+ 
 function updateStats() {
   const upcoming = allEvents.filter(e => !isPast(e.date));
   document.getElementById('s-week').textContent = upcoming.filter(e => isWeek(e.date)).length;
   document.getElementById('s-month').textContent = upcoming.filter(e => isMonth(e.date)).length;
   document.getElementById('s-fundraisers').textContent = upcoming.filter(e => e.type === 'fundraiser').length;
 }
-
+ 
 function render() {
   const q = document.getElementById('search').value.toLowerCase();
   const today = new Date();
-
+ 
   const filtered = allEvents.filter(e => {
     if (filterType !== 'all' && e.type !== filterType) return false;
     if (filterLoc !== 'all' && e.city !== filterLoc) return false;
     if (q && !([e.name, e.host, e.location, e.notes].join(' ').toLowerCase().includes(q))) return false;
     return true;
   });
-
+ 
   const upcoming = filtered.filter(e => !isPast(e.date)).sort((a, b) => a.date.localeCompare(b.date));
   const past = filtered.filter(e => isPast(e.date)).sort((a, b) => b.date.localeCompare(a.date));
-
+ 
   const el = document.getElementById('events-list');
-
+ 
   if (!allEvents.length) {
     el.innerHTML = `<div class="empty"><h3>No events yet</h3><p>Run a sweep in Claude and commit <code>events.json</code> to this repo to populate the dashboard.</p></div>`;
     updateStats(); return;
   }
-
+ 
   const cardHtml = (e, isPastCard) => `
     <div class="event-card${isPastCard ? ' past' : ''}">
       <div class="date-col">
@@ -464,23 +464,23 @@ function render() {
       </div>
     </div>
   `;
-
+ 
   let html = '';
   if (!upcoming.length && !showPast) {
     html = `<div class="empty"><h3>No upcoming events</h3><p>Toggle "Show past" to see archived events, or run a sweep to add new ones.</p></div>`;
   } else {
     html += upcoming.map(e => cardHtml(e, false)).join('');
   }
-
+ 
   if (showPast && past.length) {
     html += `<div class="past-divider">Past events — ${past.length}</div>`;
     html += past.map(e => cardHtml(e, true)).join('');
   }
-
+ 
   el.innerHTML = html;
   updateStats();
 }
-
+ 
 function setType(v, el) {
   filterType = v;
   document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
@@ -499,7 +499,7 @@ function togglePast(el) {
   el.classList.toggle('active', showPast);
   render();
 }
-
+ 
 // Events data (inline — no fetch needed)
 allEvents = [
   {"id":"politico-6g-0318","name":"POLITICO Policy Outlook: Powering 6G","host":"POLITICO Live","date":"2026-03-18","time":"09:00","location":"Washington, DC (in-person + virtual)","type":"briefing","city":"dc","link":"https://politicopolicyoutlook6g.splashthat.com/","notes":"Telecom/tech policy briefing with Rep. Doris Matsui. In-person and virtual options. Relevant for tech-adjacent clients."},
@@ -526,3 +526,4 @@ render();
 </script>
 </body>
 </html>
+ 
