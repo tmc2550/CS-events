@@ -144,7 +144,17 @@
     "notes": "Policy briefing and networking reception 4:30-7:30pm at Capitol Hill Club. Good cross-sector networking."
   },
   {
-    "id": "wipa-panel-0324",
+    "id": "agencyiq-food-webinar-0324",
+    "name": "Food Policy in Motion: New Regulations and Signals, and What It All Means",
+    "host": "AgencyIQ by POLITICO",
+    "date": "2026-03-24",
+    "time": "12:00",
+    "location": "Virtual",
+    "type": "briefing",
+    "city": "virtual",
+    "link": "https://goto.politico.com/dc/eGOYvjLWyIvQrrjM1RG-9RtevNKuOfW7oZI2uOaRmkqiUwp7zr8k4lxGykggmdsw0Anz05sUekvKLuyteOopMutlwLIYuyppshWEP9YB-CtQJfwGYkgNPmFrUQM0PjSaEevZ5iq9m4y5pMn61bV5lfOGi9bv1LoNbDC2C7q9v2BUhCMHKl_Uu8YZGrVuCYiBZYCV-Yd0eOHrZUhQHXLQNZgtUsuy6Tgu-LU3OH-hm1mqDdMPrZeXTNNh2PD8El8g/OTY2LUtIRi01MzMAAAGgm7d9txYkkUOuLgoARbMDB0qGj7-4d3Fx4LPYb51zlZi9Kfkt5kzlvnPWD11SEZWJ8xoQ0TQ=",
+    "notes": "Virtual webinar on FDA/USDA food policy, emerging agency signals, and Congressional developments. Relevant for Albertsons/ACI food and nutrition policy work."
+  },
     "name": "Women in Policy Alliance Panel & Toast to Women's History Month",
     "host": "Women in Policy Alliance",
     "date": "2026-03-24",
