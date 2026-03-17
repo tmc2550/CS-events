@@ -4,12 +4,24 @@
     "name": "POLITICO Policy Outlook: Powering 6G",
     "host": "POLITICO Live",
     "date": "2026-03-18",
-    "time": "",
-    "location": "Washington, DC",
+    "time": "09:00",
+    "location": "Washington, DC (in-person + virtual)",
     "type": "briefing",
     "city": "dc",
-    "link": "https://www.politico.com/live-events",
-    "notes": "Telecom/tech policy briefing. Relevant for tech-adjacent clients."
+    "link": "https://politicopolicyoutlook6g.splashthat.com/",
+    "notes": "Telecom/tech policy briefing with Rep. Doris Matsui. In-person and virtual options. Relevant for tech-adjacent clients."
+  },
+  {
+    "id": "agripulse-summit-0323",
+    "name": "Agri-Pulse Ag & Food Policy Summit",
+    "host": "Agri-Pulse",
+    "date": "2026-03-23",
+    "time": "08:00",
+    "location": "National Press Club, Washington, DC",
+    "type": "conference",
+    "city": "dc",
+    "link": "https://agri-pulse.swoogo.com/2026-dc-summit/",
+    "notes": "Full-day summit with House Ag Chair GT Thompson, Senate Ag Chair Boozman, Ranking Member Klobuchar. Followed by customer appreciation reception. Highly relevant for Albertsons/ACI farm bill and food policy work."
   },
   {
     "id": "politico-cera-0322",
@@ -19,9 +31,21 @@
     "time": "",
     "location": "Houston, TX",
     "type": "reception",
-    "city": "other",
+    "city": "oot",
     "link": "https://www.politico.com/live-events",
-    "notes": "Energy policy reception at CERAWeek. Good energy sector networking."
+    "notes": "Energy policy reception running March 22-25 alongside CERAWeek. Good energy sector networking."
+  },
+  {
+    "id": "axios-ai-0325",
+    "name": "Axios AI+ DC Summit",
+    "host": "Axios",
+    "date": "2026-03-25",
+    "time": "13:30",
+    "location": "Washington, DC (venue shared upon RSVP)",
+    "type": "conference",
+    "city": "dc",
+    "link": "https://axiosaidcsummit2026.splashthat.com/",
+    "notes": "Half-day AI summit with Rep. Kat Cammack. Mainstage 2:10-5pm, reception to 7pm. Relevant for NobleReach and tech-adjacent clients."
   },
   {
     "id": "politico-economy-0325",
@@ -36,27 +60,15 @@
     "notes": "Economic policy summit. Relevant for Carta, Albertsons, and fintech clients."
   },
   {
-    "id": "agripulse-summit-tbd",
-    "name": "Agri-Pulse Ag & Food Policy Summit",
-    "host": "Agri-Pulse",
-    "date": "2026-03-23",
-    "time": "",
-    "location": "National Press Club, Washington, DC",
-    "type": "conference",
-    "city": "dc",
-    "link": "https://www.agri-pulse.com/events",
-    "notes": "Speakers include House Ag Chair GT Thompson, Senate Ag Chair Boozman, Ranking Member Klobuchar. Relevant for Albertsons/ACI farm bill and food policy work."
-  },
-  {
     "id": "politico-health-0421",
     "name": "POLITICO's Health Care Summit",
     "host": "POLITICO Live",
     "date": "2026-04-21",
     "time": "",
-    "location": "Washington, DC",
+    "location": "Washington, DC (in-person + virtual)",
     "type": "conference",
     "city": "dc",
     "link": "https://www.politico.com/live-events",
-    "notes": "Health care policy summit. Highly relevant for Alliance for Care at Home client."
+    "notes": "Annual health care summit. Highly relevant for Alliance for Care at Home client."
   }
 ]
