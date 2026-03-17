@@ -1,769 +1,423 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Cogent Events Dashboard</title>
-
 <style>
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-
     --bg: #fafaf8;
-
     --surface: #ffffff;
-
     --surface-2: #f3f2ef;
-
     --border: #e4e2dd;
-
     --border-strong: #c8c5be;
-
     --text: #1a1916;
-
     --text-2: #5c5a54;
-
     --text-3: #9c9a94;
-
     --accent: #1a1916;
-
     --radius-sm: 6px;
-
     --radius-md: 10px;
-
     --radius-lg: 14px;
-
     --font: 'DM Sans', system-ui, sans-serif;
-
     --font-mono: 'DM Mono', monospace;
-
   }
 
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400&display=swap');
 
   body {
-
     font-family: var(--font);
-
     background: var(--bg);
-
     color: var(--text);
-
     min-height: 100vh;
-
     font-size: 15px;
-
     line-height: 1.5;
-
   }
 
   /* Layout */
-
   .site-header {
-
     background: var(--surface);
-
     border-bottom: 1px solid var(--border);
-
     padding: 0 2rem;
-
     position: sticky;
-
     top: 0;
-
     z-index: 50;
-
   }
-
   .header-inner {
-
     max-width: 1100px;
-
     margin: 0 auto;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     height: 56px;
-
     gap: 16px;
-
   }
-
   .wordmark {
-
     font-size: 13px;
-
     font-weight: 500;
-
     letter-spacing: 0.08em;
-
     text-transform: uppercase;
-
     color: var(--text-2);
-
   }
-
   .wordmark span { color: var(--text); }
 
   .last-updated {
-
     font-size: 12px;
-
     color: var(--text-3);
-
     font-family: var(--font-mono);
-
   }
 
   .main { max-width: 1100px; margin: 0 auto; padding: 2rem; }
 
   /* Page title */
-
   .page-title { margin-bottom: 1.75rem; }
-
   .page-title h1 { font-size: 26px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 4px; }
-
   .page-title p { font-size: 14px; color: var(--text-2); }
 
   /* Stats row */
-
   .stats {
-
     display: grid;
-
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-
     gap: 10px;
-
     margin-bottom: 1.75rem;
-
   }
-
   .stat {
-
     background: var(--surface);
-
     border: 1px solid var(--border);
-
     border-radius: var(--radius-md);
-
     padding: 14px 18px;
-
   }
-
   .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); margin-bottom: 4px; }
-
   .stat-val { font-size: 24px; font-weight: 300; color: var(--text); letter-spacing: -0.02em; }
 
   /* Filters */
-
   .controls {
-
     display: flex;
-
     gap: 8px;
-
     flex-wrap: wrap;
-
     align-items: center;
-
     margin-bottom: 1.25rem;
-
   }
-
   .chip {
-
     font-size: 12px;
-
     font-weight: 400;
-
     padding: 5px 13px;
-
     border-radius: 20px;
-
     border: 1px solid var(--border);
-
     background: var(--surface);
-
     color: var(--text-2);
-
     cursor: pointer;
-
     transition: all 0.12s;
-
     white-space: nowrap;
-
   }
-
   .chip:hover { border-color: var(--border-strong); color: var(--text); }
-
   .chip.active { background: var(--text); border-color: var(--text); color: #fff; }
-
   .divider-chip { width: 1px; height: 20px; background: var(--border); margin: 0 2px; }
-
   .search-box {
-
     margin-left: auto;
-
     position: relative;
-
   }
-
   .search-box input {
-
     font-family: var(--font);
-
     font-size: 13px;
-
     padding: 6px 12px 6px 32px;
-
     border: 1px solid var(--border);
-
     border-radius: 20px;
-
     background: var(--surface);
-
     color: var(--text);
-
     width: 210px;
-
     outline: none;
-
     transition: border-color 0.12s;
-
   }
-
   .search-box input:focus { border-color: var(--border-strong); }
-
   .search-box::before {
-
     content: '';
-
     position: absolute;
-
     left: 11px; top: 50%;
-
     transform: translateY(-50%);
-
     width: 13px; height: 13px;
-
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239c9a94' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
-
     background-size: contain;
-
     background-repeat: no-repeat;
-
   }
 
   /* Event cards */
-
   .events-list { display: flex; flex-direction: column; gap: 6px; }
 
   .event-card {
-
     background: var(--surface);
-
     border: 1px solid var(--border);
-
     border-radius: var(--radius-lg);
-
     padding: 16px 18px;
-
     display: grid;
-
     grid-template-columns: 52px 1fr auto;
-
     gap: 16px;
-
     align-items: center;
-
     transition: border-color 0.12s, box-shadow 0.12s;
-
   }
-
   .event-card:hover {
-
     border-color: var(--border-strong);
-
     box-shadow: 0 1px 8px rgba(0,0,0,0.05);
-
   }
 
   .date-col {
-
     text-align: center;
-
     background: var(--surface-2);
-
     border-radius: var(--radius-sm);
-
     padding: 8px 6px;
-
     flex-shrink: 0;
-
   }
-
   .date-mon { font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3); font-weight: 500; }
-
   .date-day { font-size: 22px; font-weight: 300; color: var(--text); line-height: 1.1; letter-spacing: -0.02em; }
 
   .event-body { min-width: 0; }
-
   .event-name { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
   .event-host { font-size: 12px; color: var(--text-2); margin-bottom: 7px; }
-
   .event-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-
   .meta-piece { font-size: 12px; color: var(--text-3); display: flex; align-items: center; gap: 4px; }
 
   .badge {
-
     font-size: 10px;
-
     font-weight: 500;
-
     letter-spacing: 0.04em;
-
     padding: 2px 8px;
-
     border-radius: 10px;
-
     text-transform: uppercase;
-
   }
-
   .badge-reception    { background: #e6f4ee; color: #1a5c38; }
-
   .badge-conference   { background: #e6eef9; color: #1a3d7a; }
-
   .badge-fundraiser   { background: #fdf0e0; color: #7a4a08; }
-
   .badge-happy-hour   { background: #fce8f0; color: #7a1a42; }
-
   .badge-briefing     { background: #eeecfc; color: #3c2e8a; }
-
   .badge-other        { background: var(--surface-2); color: var(--text-2); }
-
   .badge-nyc          { background: var(--surface-2); color: var(--text-2); }
 
   .event-actions { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex-shrink: 0; }
 
   .btn-register {
-
     font-family: var(--font);
-
     font-size: 12px;
-
     font-weight: 500;
-
     padding: 7px 14px;
-
     border-radius: var(--radius-sm);
-
     border: 1px solid var(--border-strong);
-
     background: var(--surface);
-
     color: var(--text);
-
     cursor: pointer;
-
     text-decoration: none;
-
     display: inline-block;
-
     transition: background 0.12s;
-
     white-space: nowrap;
-
   }
-
   .btn-register:hover { background: var(--surface-2); }
 
   .btn-save {
-
     font-family: var(--font);
-
     font-size: 11px;
-
     padding: 4px 10px;
-
     border-radius: var(--radius-sm);
-
     border: 1px solid var(--border);
-
     background: transparent;
-
     color: var(--text-3);
-
     cursor: pointer;
-
     transition: all 0.12s;
-
   }
-
   .btn-save:hover { color: var(--text-2); border-color: var(--border-strong); }
-
   .btn-save.saved { color: #7a4a08; border-color: #e0b870; background: #fdf0e0; }
 
   .no-link { font-size: 11px; color: var(--text-3); font-style: italic; }
 
   /* Empty state */
-
   .empty {
-
     text-align: center;
-
     padding: 5rem 2rem;
-
     border: 1px dashed var(--border);
-
     border-radius: var(--radius-lg);
-
     color: var(--text-2);
-
   }
-
   .empty h3 { font-size: 15px; font-weight: 500; margin-bottom: 8px; color: var(--text); }
-
   .empty p { font-size: 13px; line-height: 1.6; max-width: 360px; margin: 0 auto; }
-
   .empty code { font-family: var(--font-mono); font-size: 12px; background: var(--surface-2); padding: 1px 6px; border-radius: 4px; }
 
   /* Event notes */
-
   .event-notes { font-size: 11px; color: var(--text-3); font-style: italic; margin-top: 4px; }
 
   /* Responsive */
-
   @media (max-width: 600px) {
-
     .main { padding: 1rem; }
-
     .event-card { grid-template-columns: 44px 1fr; }
-
     .event-actions { display: none; }
-
     .site-header { padding: 0 1rem; }
-
     .controls { gap: 6px; }
-
     .search-box { margin-left: 0; width: 100%; }
-
     .search-box input { width: 100%; }
-
   }
-
 </style>
-
 </head>
-
 <body>
 
 <header class="site-header">
-
   <div class="header-inner">
-
     <div class="wordmark">Cogent <span>Events</span></div>
-
     <div class="last-updated" id="last-updated"></div>
-
   </div>
-
 </header>
 
 <main class="main">
-
   <div class="page-title">
-
     <h1>Upcoming Events</h1>
-
-    <p>Washington, DC &amp; New York City · Networking, conferences, briefings, and fundraisers</p>
-
+    <p>Washington, DC · Virtual · Out of Town · Networking, conferences, briefings, and fundraisers</p>
   </div>
 
   <div class="stats">
-
     <div class="stat"><div class="stat-label">This week</div><div class="stat-val" id="s-week">—</div></div>
-
     <div class="stat"><div class="stat-label">This month</div><div class="stat-val" id="s-month">—</div></div>
-
     <div class="stat"><div class="stat-label">Fundraisers</div><div class="stat-val" id="s-fundraisers">—</div></div>
-
     <div class="stat"><div class="stat-label">Saved</div><div class="stat-val" id="s-saved">—</div></div>
-
   </div>
 
   <div class="controls">
-
     <button class="chip active" data-type="all" onclick="setType('all',this)">All</button>
-
     <button class="chip" data-type="reception" onclick="setType('reception',this)">Receptions</button>
-
     <button class="chip" data-type="conference" onclick="setType('conference',this)">Conferences</button>
-
     <button class="chip" data-type="fundraiser" onclick="setType('fundraiser',this)">Fundraisers</button>
-
     <button class="chip" data-type="happy-hour" onclick="setType('happy-hour',this)">Happy hours</button>
-
     <button class="chip" data-type="briefing" onclick="setType('briefing',this)">Briefings</button>
-
     <div class="divider-chip"></div>
-
-    <button class="chip active" data-loc="all" onclick="setLoc('all',this)">DC + NYC</button>
-
-    <button class="chip" data-loc="dc" onclick="setLoc('dc',this)">DC only</button>
-
-    <button class="chip" data-loc="nyc" onclick="setLoc('nyc',this)">NYC only</button>
-
+    <button class="chip active" data-loc="all" onclick="setLoc('all',this)">All locations</button>
+    <button class="chip" data-loc="dc" onclick="setLoc('dc',this)">DC</button>
+    <button class="chip" data-loc="virtual" onclick="setLoc('virtual',this)">Virtual</button>
+    <button class="chip" data-loc="oot" onclick="setLoc('oot',this)">Out of town</button>
     <div class="search-box">
-
       <input type="text" id="search" placeholder="Search events…" oninput="render()">
-
     </div>
-
   </div>
 
   <div class="events-list" id="events-list"></div>
-
 </main>
 
 <script>
-
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-
 const TYPE_LABELS = {
-
   reception: 'Reception', conference: 'Conference',
-
   fundraiser: 'Fundraiser', 'happy-hour': 'Happy hour',
-
   briefing: 'Briefing', other: 'Other'
-
 };
 
 let allEvents = [];
-
 let saved = JSON.parse(localStorage.getItem('cg-saved') || '[]');
-
 let filterType = 'all';
-
 let filterLoc = 'all';
 
 function mon(d) { return MONTHS[+d.split('-')[1] - 1]; }
-
 function day(d) { return +d.split('-')[2]; }
-
 function fmt(t) {
-
   if (!t) return '';
-
   const [h, m] = t.split(':').map(Number);
-
   return `${h % 12 || 12}:${String(m).padStart(2,'0')} ${h >= 12 ? 'PM' : 'AM'}`;
-
 }
-
 function isWeek(d) {
-
   const now = new Date(), ev = new Date(d + 'T12:00:00');
-
   const s = new Date(now); s.setDate(now.getDate() - now.getDay());
-
   const e = new Date(s); e.setDate(s.getDate() + 7);
-
   return ev >= s && ev < e;
-
 }
-
 function isMonth(d) {
-
   const now = new Date(), ev = new Date(d + 'T12:00:00');
-
   return ev.getMonth() === now.getMonth() && ev.getFullYear() === now.getFullYear();
-
 }
-
 function isSaved(id) { return saved.includes(id); }
-
 function toggleSave(id) {
-
   saved = isSaved(id) ? saved.filter(x => x !== id) : [...saved, id];
-
   localStorage.setItem('cg-saved', JSON.stringify(saved));
-
   render();
-
 }
 
 function updateStats() {
-
   document.getElementById('s-week').textContent = allEvents.filter(e => isWeek(e.date)).length;
-
   document.getElementById('s-month').textContent = allEvents.filter(e => isMonth(e.date)).length;
-
   document.getElementById('s-fundraisers').textContent = allEvents.filter(e => e.type === 'fundraiser').length;
-
   document.getElementById('s-saved').textContent = saved.length;
-
 }
 
 function render() {
-
   const q = document.getElementById('search').value.toLowerCase();
-
   const list = allEvents.filter(e => {
-
     if (filterType !== 'all' && e.type !== filterType) return false;
-
     if (filterLoc !== 'all' && e.city !== filterLoc) return false;
-
     if (q && !([e.name, e.host, e.location, e.notes].join(' ').toLowerCase().includes(q))) return false;
-
     return true;
-
   }).sort((a, b) => a.date.localeCompare(b.date));
 
   const el = document.getElementById('events-list');
 
   if (!allEvents.length) {
-
     el.innerHTML = `<div class="empty"><h3>No events yet</h3><p>Run a sweep in Claude and commit <code>events.json</code> to this repo to populate the dashboard.</p></div>`;
-
     updateStats(); return;
-
   }
-
   if (!list.length) {
-
     el.innerHTML = `<div class="empty"><h3>No matches</h3><p>Try adjusting your filters or search term.</p></div>`;
-
     updateStats(); return;
-
   }
 
   el.innerHTML = list.map(e => `
-
     <div class="event-card">
-
       <div class="date-col">
-
         <div class="date-mon">${mon(e.date)}</div>
-
         <div class="date-day">${day(e.date)}</div>
-
       </div>
-
       <div class="event-body">
-
         <div class="event-name" title="${e.name}">${e.name}</div>
-
         <div class="event-host">${e.host}</div>
-
         <div class="event-meta">
-
           <span class="badge badge-${e.type || 'other'}">${TYPE_LABELS[e.type] || 'Other'}</span>
-
-          ${e.city === 'nyc' ? '<span class="badge badge-nyc">NYC</span>' : ''}
-
+          ${e.city === 'virtual' ? '<span class="badge badge-nyc">Virtual</span>' : ''}
+          ${e.city === 'oot' ? '<span class="badge badge-nyc">Out of town</span>' : ''}
           ${e.time ? `<span class="meta-piece">🕐 ${fmt(e.time)}</span>` : ''}
-
           ${e.location ? `<span class="meta-piece">📍 ${e.location}</span>` : ''}
-
         </div>
-
         ${e.notes ? `<div class="event-notes">${e.notes}</div>` : ''}
-
       </div>
-
       <div class="event-actions">
-
         ${e.link
-
           ? `<a class="btn-register" href="${e.link}" target="_blank" rel="noopener">Register ↗</a>`
-
-          : '<span class="no-link">No link yet</span>'}
-
+          : `<span class="no-link">No link yet</span>`}
         <button class="btn-save ${isSaved(e.id) ? 'saved' : ''}" onclick="toggleSave('${e.id}')">
-
           ${isSaved(e.id) ? '★ Saved' : '☆ Save'}
-
         </button>
-
       </div>
-
     </div>
-
   `).join('');
-
   updateStats();
-
 }
 
 function setType(v, el) {
-
   filterType = v;
-
   document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
-
   el.classList.add('active');
-
   render();
-
 }
-
 function setLoc(v, el) {
-
   filterLoc = v;
-
   document.querySelectorAll('[data-loc]').forEach(b => b.classList.remove('active'));
-
   el.classList.add('active');
-
   render();
-
 }
 
 // Load events.json from same directory
-
-fetch('events.json?t=' + Date.now())
-
+fetch('data/events.json?t=' + Date.now())
   .then(r => r.json())
-
   .then(data => {
-
     allEvents = data;
-
     const now = new Date().toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
-
     document.getElementById('last-updated').textContent = `Updated ${now}`;
-
     render();
-
   })
-
   .catch(() => {
-
     allEvents = [];
-
     render();
-
   });
-
 </script>
-
 </body>
-
 </html>
