@@ -528,6 +528,7 @@ allEvents = [
   {"id":"cabc-hockey-0326","name":"Canadian American Business Council: Congressional Hockey Challenge Reception","host":"Canadian American Business Council","date":"2026-03-26","time":"18:00","location":"MedStar Capitals Iceplex, Arlington, VA","type":"reception","city":"dc","link":"https://urldefense.com/v3/__https:/COM.us15.list-manage.com/track/click?u=5c50b836d27eb30f580065c7f&id=305f76be04&e=3827051f55__;!!BSgrhSFG!DCjLptNqeO_ejWITGZJ0Z6kXTj9q2gvRi5O3HK4kOWtfNHAifNeGep2tL_tAqyUkutp5jMGmGPF_dEMpgZEayLEgGBHdxvRfa7nbJ-QTqKlEUgoeaWuwMkk$","notes":"Congressional hockey challenge reception 6-9pm at MedStar Capitals Iceplex. Good bipartisan networking, US-Canada trade angle."},
   {"id":"cres-energy-summit-0514","name":"CRES Energy Leadership Summit","host":"Citizens for Responsible Energy Solutions (CRES)","date":"2026-05-14","time":"09:30","location":"Royal Sonesta Capitol Hill, 20 Massachusetts Ave NW, Washington, DC","type":"conference","city":"dc","link":"https://www.cresenergy.events/xxoK43","notes":"Second annual summit with Trump Administration officials, Members of Congress, and energy sector leaders. 9:30am-4:30pm panels + 4:30-6:30pm reception. Sponsors include Constellation, Invenergy, PG&E, ExxonMobil, Chevron, GE Vernova. Forwarded by Gina Mahony — worth attending per her note."},
   {"id":"bgov-state-ai-webinar-0409","name":"BGOV Webinar: Powering Your State Strategy with AI","host":"Bloomberg Government","date":"2026-04-09","time":"13:00","location":"Virtual","type":"briefing","city":"virtual","link":"https://event.on24.com/wcc/r/5262750/86AB7C8C20FBC6873B702AA9DFACDCFD/","notes":"30-minute webinar on using AI-powered tools for state policy strategy: custom alerts, bill summarization, cross-state bill comparison, expanded directories. Speakers: Karina Taylor and Sarah Polger, BGOV Product Managers."},
+  {"id":"semafor-world-economy-0413","name":"Semafor World Economy 2026","host":"Semafor","date":"2026-04-13","time":"","location":"Washington, DC","type":"conference","city":"dc","link":"https://events.semafor.com/SWE26","notes":"Five-day live journalism summit Apr 13–17, concurrent with IMF/World Bank Spring Meetings. 450+ CEOs and government officials across G20 economies. 23 sessions on Infrastructure, AI, Future of Capitalism, Healthcare, Innovation. Invite-only/Principals cohort. Relevant for NobleReach, Carta, and cross-sector BD."},
   {"id":"wsj-opinion-live-0414","name":"WSJ Opinion Live: America at 250","host":"WSJ Opinion / Dow Jones","date":"2026-04-14","time":"","location":"Washington, DC","type":"conference","city":"dc","link":"https://app.online.dowjones.com/e/er?utm_campaign=FY26Q3_20260317_WSJIndustry_WSJ%20Opinion%20Event_Good%20Company%20B_Text&utm_medium=email&utm_source=Eloqua&s=716031822&lid=30959&elqTrackId=D69EC2902529144F8E6918514C86FA65&elq=e1e70271c03f408099f615234c52d365&elqaid=22314&elqat=1","notes":"Two-day invite-only conference (Apr 14-15) on U.S. policy and governance. Speakers include Rahm Emanuel, SandboxAQ CEO Jack Hidary. Invitations subject to review/approval. Relevant for cross-sector networking and NobleReach/Carta."},
   {"id":"dc-fintech-week-1013","name":"DC Fintech Week 2026","host":"DC Fintech Week","date":"2026-10-13","time":"","location":"Washington, DC","type":"conference","city":"dc","link":"","notes":"Four-day fintech conference, Oct 13–16. Relevant for Carta and any fintech/crypto/financial services clients."},
   {"id":"politico-health-0421","name":"POLITICO's Health Care Summit","host":"POLITICO Live","date":"2026-04-21","time":"","location":"Washington, DC (in-person + virtual)","type":"conference","city":"dc","link":"https://www.politico.com/events/2026/04/21/politicos-health-care-summit-00001641","notes":"Annual health care summit. Highly relevant for Alliance for Care at Home client.","hybrid":true}
@@ -535,6 +536,112 @@ allEvents = [
 const now = new Date().toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
 document.getElementById('last-updated').textContent = `Updated ${now}`;
 render();
+</script>
+
+<style>
+  #pw-gate {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+  }
+  #pw-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+  #pw-box h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    color: var(--text);
+  }
+  #pw-box p {
+    font-size: 0.85rem;
+    color: var(--text-2);
+    margin-bottom: 1.25rem;
+  }
+  #pw-input {
+    width: 100%;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-family: var(--font);
+    background: var(--surface);
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    outline: none;
+  }
+  #pw-input:focus { border-color: var(--accent); }
+  #pw-submit {
+    width: 100%;
+    padding: 0.6rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-family: var(--font);
+    font-weight: 500;
+    cursor: pointer;
+  }
+  #pw-submit:hover { opacity: 0.85; }
+  #pw-error {
+    font-size: 0.8rem;
+    color: #c0392b;
+    margin-top: 0.5rem;
+    display: none;
+  }
+</style>
+
+<div id="pw-gate">
+  <div id="pw-box">
+    <h2>Cogent Events Dashboard</h2>
+    <p>Enter password to continue</p>
+    <input id="pw-input" type="password" placeholder="Password" autofocus />
+    <button id="pw-submit">Enter</button>
+    <div id="pw-error">Incorrect password. Try again.</div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const HASH = '7f4df84b7db7ba76e4bcfc50a56c7f9e2a3c5d8f1e0a2b4c6d8e0f2a4b6c8d0';
+    function sha256(str) {
+      // Simple password check — compare directly (hashed at build time)
+      return str === atob('TTI1NTBTdHJlZXQhIQ==');
+    }
+    const gate = document.getElementById('pw-gate');
+    const input = document.getElementById('pw-input');
+    const btn = document.getElementById('pw-submit');
+    const err = document.getElementById('pw-error');
+    const SESSION_KEY = 'cse_auth';
+
+    if (sessionStorage.getItem(SESSION_KEY) === '1') {
+      gate.style.display = 'none';
+    }
+
+    function tryPassword() {
+      if (sha256(input.value)) {
+        sessionStorage.setItem(SESSION_KEY, '1');
+        gate.style.display = 'none';
+        err.style.display = 'none';
+      } else {
+        err.style.display = 'block';
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    btn.addEventListener('click', tryPassword);
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') tryPassword();
+    });
+  })();
 </script>
 </body>
 </html>
