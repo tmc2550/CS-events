@@ -6,7 +6,6 @@
 <title>Cogent Events Dashboard</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --bg: #fafaf8;
     --surface: #ffffff;
@@ -23,9 +22,7 @@
     --font: 'DM Sans', system-ui, sans-serif;
     --font-mono: 'DM Mono', monospace;
   }
-
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400&display=swap');
-
   body {
     font-family: var(--font);
     background: var(--bg);
@@ -34,8 +31,6 @@
     font-size: 15px;
     line-height: 1.5;
   }
-
-  /* Layout */
   .site-header {
     background: var(--surface);
     border-bottom: 1px solid var(--border);
@@ -61,21 +56,15 @@
     color: var(--text-2);
   }
   .wordmark span { color: var(--text); }
-
   .last-updated {
     font-size: 12px;
     color: var(--text-3);
     font-family: var(--font-mono);
   }
-
   .main { max-width: 1100px; margin: 0 auto; padding: 2rem; }
-
-  /* Page title */
   .page-title { margin-bottom: 1.75rem; }
   .page-title h1 { font-size: 26px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 4px; }
   .page-title p { font-size: 14px; color: var(--text-2); }
-
-  /* Stats row */
   .stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -90,8 +79,6 @@
   }
   .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); margin-bottom: 4px; }
   .stat-val { font-size: 24px; font-weight: 300; color: var(--text); letter-spacing: -0.02em; }
-
-  /* Filters */
   .controls {
     display: flex;
     gap: 8px;
@@ -141,10 +128,7 @@
     background-size: contain;
     background-repeat: no-repeat;
   }
-
-  /* Event cards */
   .events-list { display: flex; flex-direction: column; gap: 6px; }
-
   .event-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -160,7 +144,6 @@
     border-color: var(--border-strong);
     box-shadow: 0 1px 8px rgba(0,0,0,0.05);
   }
-
   .date-col {
     text-align: center;
     background: var(--surface-2);
@@ -170,13 +153,11 @@
   }
   .date-mon { font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3); font-weight: 500; }
   .date-day { font-size: 22px; font-weight: 300; color: var(--text); line-height: 1.1; letter-spacing: -0.02em; }
-
   .event-body { min-width: 0; }
   .event-name { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .event-host { font-size: 12px; color: var(--text-2); margin-bottom: 7px; }
   .event-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
   .meta-piece { font-size: 12px; color: var(--text-3); display: flex; align-items: center; gap: 4px; }
-
   .badge {
     font-size: 10px;
     font-weight: 500;
@@ -192,9 +173,7 @@
   .badge-briefing     { background: #eeecfc; color: #3c2e8a; }
   .badge-other        { background: var(--surface-2); color: var(--text-2); }
   .badge-nyc          { background: var(--surface-2); color: var(--text-2); }
-
   .event-actions { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex-shrink: 0; }
-
   .btn-register {
     font-family: var(--font);
     font-size: 12px;
@@ -211,7 +190,6 @@
     white-space: nowrap;
   }
   .btn-register:hover { background: var(--surface-2); }
-
   .btn-cal {
     font-family: var(--font);
     font-size: 11px;
@@ -227,8 +205,6 @@
     display: inline-block;
   }
   .btn-cal:hover { border-color: var(--border-strong); color: var(--text); background: var(--surface-2); }
-
-  /* Calendar disclaimer modal */
   .cal-modal-bg { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.35); z-index:200; align-items:center; justify-content:center; }
   .cal-modal-bg.open { display:flex; }
   .cal-modal { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.5rem; max-width:380px; width:90%; }
@@ -239,10 +215,7 @@
   .cal-modal-footer a { font-size:13px; font-weight:500; padding:7px 14px; border-radius:var(--radius-sm); border:1px solid var(--border-strong); background:var(--surface); color:var(--text); cursor:pointer; text-decoration:none; transition:background 0.12s; }
   .cal-modal-footer a:hover { background:var(--surface-2); }
   .cal-modal-footer button { font-size:13px; padding:7px 14px; border-radius:var(--radius-sm); border:1px solid var(--border); background:transparent; color:var(--text-2); cursor:pointer; }
-
   .no-link { font-size: 11px; color: var(--text-3); font-style: italic; }
-
-  /* Empty state */
   .empty {
     text-align: center;
     padding: 5rem 2rem;
@@ -253,16 +226,10 @@
   .empty h3 { font-size: 15px; font-weight: 500; margin-bottom: 8px; color: var(--text); }
   .empty p { font-size: 13px; line-height: 1.6; max-width: 360px; margin: 0 auto; }
   .empty code { font-family: var(--font-mono); font-size: 12px; background: var(--surface-2); padding: 1px 6px; border-radius: 4px; }
-
-  /* Event notes */
   .event-notes { font-size: 11px; color: var(--text-3); font-style: italic; margin-top: 4px; }
-
-  /* Past events */
   .event-card.past { opacity: 0.5; }
   .event-card.past .date-col { background: var(--surface-2); }
   .past-divider { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3); padding: 12px 0 6px; font-weight: 500; }
-
-  /* Responsive */
   @media (max-width: 600px) {
     .main { padding: 1rem; }
     .event-card { grid-template-columns: 44px 1fr; }
@@ -275,26 +242,22 @@
 </style>
 </head>
 <body>
-
 <header class="site-header">
   <div class="header-inner">
     <div class="wordmark">Cogent <span>Events</span></div>
     <div class="last-updated" id="last-updated"></div>
   </div>
 </header>
-
 <main class="main">
   <div class="page-title">
     <h1>Upcoming Events</h1>
     <p>Washington, DC · Virtual · Out of Town · Networking, conferences, briefings, and fundraisers</p>
   </div>
-
   <div class="stats">
     <div class="stat"><div class="stat-label">This week</div><div class="stat-val" id="s-week">—</div></div>
     <div class="stat"><div class="stat-label">This month</div><div class="stat-val" id="s-month">—</div></div>
     <div class="stat"><div class="stat-label">Fundraisers</div><div class="stat-val" id="s-fundraisers">—</div></div>
   </div>
-
   <div class="controls">
     <button class="chip active" data-type="all" onclick="setType('all',this)">All</button>
     <button class="chip" data-type="reception" onclick="setType('reception',this)">Receptions</button>
@@ -313,10 +276,8 @@
       <input type="text" id="search" placeholder="Search events…" oninput="render()">
     </div>
   </div>
-
   <div class="events-list" id="events-list"></div>
 </main>
-
 <div class="cal-modal-bg" id="cal-modal-bg">
   <div class="cal-modal">
     <h3>Before you add to your calendar</h3>
@@ -327,7 +288,6 @@
     </div>
   </div>
 </div>
-
 <script>
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const TYPE_LABELS = {
@@ -335,14 +295,11 @@ const TYPE_LABELS = {
   fundraiser: 'Fundraiser', 'happy-hour': 'Happy hour',
   briefing: 'Briefing', other: 'Other'
 };
-
 let allEvents = [];
 let filterType = 'all';
 let filterLoc = 'all';
 let showPast = false;
-
 function isPast(d) { return new Date(d + 'T23:59:59') < new Date(); }
-
 function makeICS(e) {
   const pad = n => String(n).padStart(2,'0');
   const dt = new Date(e.date + 'T' + (e.time || '09:00') + ':00');
@@ -364,7 +321,6 @@ function makeICS(e) {
     'END:VEVENT','END:VCALENDAR'
   ].join('\r\n');
 }
-
 let pendingICS = null;
 function openCal(id) {
   const e = allEvents.find(x => x.id === id);
@@ -385,7 +341,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ev.target === this) closeCal();
   });
 });
-
 function mon(d) { return MONTHS[+d.split('-')[1] - 1]; }
 function day(d) { return +d.split('-')[2]; }
 function fmt(t) {
@@ -409,35 +364,28 @@ function toggleSave(id) {
   localStorage.setItem('cg-saved', JSON.stringify(saved));
   render();
 }
-
 function updateStats() {
   const upcoming = allEvents.filter(e => !isPast(e.date));
   document.getElementById('s-week').textContent = upcoming.filter(e => isWeek(e.date)).length;
   document.getElementById('s-month').textContent = upcoming.filter(e => isMonth(e.date)).length;
   document.getElementById('s-fundraisers').textContent = upcoming.filter(e => e.type === 'fundraiser').length;
 }
-
 function render() {
   const q = document.getElementById('search').value.toLowerCase();
   const today = new Date();
-
   const filtered = allEvents.filter(e => {
     if (filterType !== 'all' && e.type !== filterType) return false;
     if (filterLoc !== 'all' && e.city !== filterLoc && !(filterLoc === 'virtual' && e.hybrid)) return false;
     if (q && !([e.name, e.host, e.location, e.notes].join(' ').toLowerCase().includes(q))) return false;
     return true;
   });
-
   const upcoming = filtered.filter(e => !isPast(e.date)).sort((a, b) => a.date.localeCompare(b.date));
   const past = filtered.filter(e => isPast(e.date)).sort((a, b) => b.date.localeCompare(a.date));
-
   const el = document.getElementById('events-list');
-
   if (!allEvents.length) {
     el.innerHTML = `<div class="empty"><h3>No events yet</h3><p>Run a sweep in Claude and commit <code>events.json</code> to this repo to populate the dashboard.</p></div>`;
     updateStats(); return;
   }
-
   const cardHtml = (e, isPastCard) => `
     <div class="event-card${isPastCard ? ' past' : ''}">
       <div class="date-col">
@@ -451,36 +399,32 @@ function render() {
           <span class="badge badge-${e.type || 'other'}">${TYPE_LABELS[e.type] || 'Other'}</span>
           ${(e.city === 'virtual' || e.hybrid) ? '<span class="badge badge-nyc">Virtual</span>' : ''}
           ${e.city === 'oot' ? '<span class="badge badge-nyc">Out of town</span>' : ''}
-          ${e.time ? `<span class="meta-piece">🕐 ${fmt(e.time)}</span>` : ''}
-          ${e.location ? `<span class="meta-piece">📍 ${e.location}</span>` : ''}
+          ${e.time ? `<span class="meta-piece">&#128336; ${fmt(e.time)}</span>` : ''}
+          ${e.location ? `<span class="meta-piece">&#128205; ${e.location}</span>` : ''}
         </div>
         ${e.notes ? `<div class="event-notes">${e.notes}</div>` : ''}
       </div>
       <div class="event-actions">
         ${e.link
-          ? `<a class="btn-register" href="${e.link}" target="_blank" rel="noopener">Register ↗</a>`
+          ? `<a class="btn-register" href="${e.link}" target="_blank" rel="noopener">Register &#8599;</a>`
           : `<span class="no-link">No link yet</span>`}
         <button class="btn-cal" onclick="openCal('${e.id}')">+ Add to calendar</button>
       </div>
     </div>
   `;
-
   let html = '';
   if (!upcoming.length && !showPast) {
     html = `<div class="empty"><h3>No upcoming events</h3><p>Toggle "Show past" to see archived events, or run a sweep to add new ones.</p></div>`;
   } else {
     html += upcoming.map(e => cardHtml(e, false)).join('');
   }
-
   if (showPast && past.length) {
     html += `<div class="past-divider">Past events — ${past.length}</div>`;
     html += past.map(e => cardHtml(e, true)).join('');
   }
-
   el.innerHTML = html;
   updateStats();
 }
-
 function setType(v, el) {
   filterType = v;
   document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
@@ -499,8 +443,6 @@ function togglePast(el) {
   el.classList.toggle('active', showPast);
   render();
 }
-
-// Events data (inline — no fetch needed)
 allEvents = [
   {"id":"politico-6g-0318","name":"POLITICO Policy Outlook: Powering 6G","host":"POLITICO Live","date":"2026-03-18","time":"09:00","location":"Washington, DC (in-person + virtual)","type":"briefing","city":"dc","link":"https://politicopolicyoutlook6g.splashthat.com/","notes":"Telecom/tech policy briefing with Rep. Doris Matsui. In-person and virtual options. Relevant for tech-adjacent clients.","hybrid":true},
   {"id":"kerrygold-stpatricks-0317","name":"Saint Patrick's Day Reception with Kerrygold","host":"Kerrygold","date":"2026-03-17","time":"17:30","location":"700 Pennsylvania Ave SE, 7th Floor, Washington, DC","type":"reception","city":"dc","link":"mailto:pgaul@akingump.com","notes":"St. Patrick's Day reception. RSVP via email to pgaul@akingump.com."},
@@ -541,34 +483,34 @@ allEvents = [
   {"id":"nile-appropriations-webinar-0326","name":"NILE Webinar: Federal Appropriations — Current State of Play","host":"National Institute for Lobbying & Ethics (NILE)","date":"2026-03-26","time":"15:00","location":"Virtual (Zoom)","type":"briefing","city":"virtual","link":"https://lobbyinginstitute.us12.list-manage.com/track/click?u=0a41480ca0f7d82e53d203675&id=9ef31b2127&e=7898f6d513","notes":"3:00–4:00 PM ET. Inside look at federal appropriations — earmarks, programmatic funding, budget environment. Cost: NILE members free; non-members $55. Panelists: Hon. Charlie Dent (mod.), Alex Pinson, Vincent Sarubbi, Nat Bell — all DLA Piper."},
   {"id":"ripon-39ers-0326","name":"Ripon Society 39ers Reception","host":"Ripon Society / SASOP Social Blast","date":"2026-03-26","time":"17:00","location":"Capitol Hill Club, Eisenhower Lounge (1st Floor), Washington, DC","type":"reception","city":"dc","link":"","notes":"5:00–7:00 PM. RSVP: cbaca@riponsociety.org."},
   {"id":"cabc-hockey-0326","name":"Canadian American Business Council: Congressional Hockey Challenge Reception","host":"Canadian American Business Council","date":"2026-03-26","time":"18:00","location":"MedStar Capitals Iceplex, Arlington, VA","type":"reception","city":"dc","link":"https://urldefense.com/v3/__https:/COM.us15.list-manage.com/track/click?u=5c50b836d27eb30f580065c7f&id=305f76be04&e=3827051f55__;!!BSgrhSFG!DCjLptNqeO_ejWITGZJ0Z6kXTj9q2gvRi5O3HK4kOWtfNHAifNeGep2tL_tAqyUkutp5jMGmGPF_dEMpgZEayLEgGBHdxvRfa7nbJ-QTqKlEUgoeaWuwMkk$","notes":"Congressional hockey challenge reception 6-9pm at MedStar Capitals Iceplex. Good bipartisan networking, US-Canada trade angle."},
-  {"id":"mackenzie-spring-getaway-0429","name":"Rep. Ryan Mackenzie Inaugural Spring Get Away (w/ Rep. Guy Reschenthaler)","host":"District City Consulting","date":"2026-04-29","time":"","location":"Farmington, PA","type":"conference","city":"oot","link":"https://secure.winred.com/mackenzie-for-congress/dcc","notes":"Apr 29–May 1. Destination trip to Farmington, PA with special guest Rep. Reschenthaler. RSVP: RSVP@DistrictCityConsulting.com."},
-  {"id":"cres-energy-summit-0514","name":"CRES Energy Leadership Summit","host":"Citizens for Responsible Energy Solutions (CRES)","date":"2026-05-14","time":"09:30","location":"Royal Sonesta Capitol Hill, 20 Massachusetts Ave NW, Washington, DC","type":"conference","city":"dc","link":"https://www.cresenergy.events/xxoK43","notes":"Second annual summit with Trump Administration officials, Members of Congress, and energy sector leaders. 9:30am-4:30pm panels + 4:30-6:30pm reception. Sponsors include Constellation, Invenergy, PG&E, ExxonMobil, Chevron, GE Vernova. Forwarded by Gina Mahony — worth attending per her note."},
+  {"id":"principles-first-womens-0331","name":"Principles First Women's History Month Happy Hour","host":"Principles First / SASOP Social Blast","date":"2026-03-31","time":"17:30","location":"Sonoma Restaurant and Wine Bar, 223 Pennsylvania Ave SE, Washington, DC","type":"happy-hour","city":"dc","link":"https://www.eventbrite.com/e/principles-first-womens-history-month-reception-tickets-1985524909453","notes":"5:30–7:30 PM. RSVP via Eventbrite link."},
   {"id":"messmer-final-four-0404","name":"Rep. Mark Messmer NCAA Final Four PAC Trip (IN-08)","host":"The Townsend Group","date":"2026-04-04","time":"","location":"Indianapolis, IN","type":"conference","city":"oot","link":"https://gy9dmwcab.cc.rs6.net/tn.jsp?f=001gI7EmZUrJ3w_mW7K7dmEFp8qMZGvi89NPi9XKsTj5J3FSCHk82ZtzNpmFbSGH_5yinMZ4NkVv79EFGqovMHgYrH7mgh6zBugrIhEHcYQEzD2ODRLzM4qCx8lCPOpkifxMNCb0S4nyYiUUL_DkUAE_Xn8289jtBqWdkLkZ3oR-HwRyyFyU5uwmXNxczGsBUL7L1v1udFpgPsjApeckZ8PGDD53GSO1Rs2gT4bjxVfcMs=&c=_OdKxuW7FJEUYn5Px3xr7cR5Nf2KGu5s7Qx67LfETM63Q7pyTmFj7w==&ch=r6jcFMOHOlVmEVRi_i7aKkQESslspq_aBvqltVgCCy4xRshWPK1Sfg==","notes":"Apr 4-6. Semi-finals Apr 4, Championship Apr 6. A few spots still open. RSVP: Jeff Livingston, jeff@thetownsendgroup.com, (703) 568-6064. Forwarded by Kimberley Fritts."},
   {"id":"white-house-egg-roll-0406","name":"White House Easter Egg Roll","host":"White House / SASOP Social Blast","date":"2026-04-06","time":"09:00","location":"White House Lawn, Washington, DC","type":"reception","city":"dc","link":"","notes":"9:00 AM–5:00 PM. Tickets required. Annual Easter Egg Roll on the South Lawn."},
   {"id":"rogers-derby-trip-0408","name":"Rep. Hal Rogers: Annual Spring Racing in Kentucky Trip","host":"District City Consulting","date":"2026-04-08","time":"","location":"Lexington, KY","type":"conference","city":"oot","link":"https://secure.winred.com/halrogers/donate-hd","notes":"Apr 8–10. Destination trip to Lexington, KY. RSVP: RSVP@DistrictCityConsulting.com."},
-  {"id":"principles-first-womens-0331","name":"Principles First Women's History Month Happy Hour","host":"Principles First / SASOP Social Blast","date":"2026-03-31","time":"17:30","location":"Sonoma Restaurant and Wine Bar, 223 Pennsylvania Ave SE, Washington, DC","type":"happy-hour","city":"dc","link":"https://www.eventbrite.com/e/principles-first-womens-history-month-reception-tickets-1985524909453","notes":"5:30–7:30 PM. RSVP via Eventbrite link."},
   {"id":"bgov-state-ai-webinar-0409","name":"BGOV Webinar: Powering Your State Strategy with AI","host":"Bloomberg Government","date":"2026-04-09","time":"13:00","location":"Virtual","type":"briefing","city":"virtual","link":"https://event.on24.com/wcc/r/5262750/86AB7C8C20FBC6873B702AA9DFACDCFD/","notes":"30-minute webinar on using AI-powered tools for state policy strategy: custom alerts, bill summarization, cross-state bill comparison, expanded directories. Speakers: Karina Taylor and Sarah Polger, BGOV Product Managers."},
   {"id":"semafor-world-economy-0413","name":"Semafor World Economy 2026","host":"Semafor","date":"2026-04-13","time":"","location":"Washington, DC","type":"conference","city":"dc","link":"https://events.semafor.com/SWE26","notes":"Five-day live journalism summit Apr 13–17, concurrent with IMF/World Bank Spring Meetings. 450+ CEOs and government officials across G20 economies. 23 sessions on Infrastructure, AI, Future of Capitalism, Healthcare, Innovation. Invite-only/Principals cohort. Relevant for NobleReach, Carta, and cross-sector BD."},
+  {"id":"axios-electric-grid-0414","name":"Axios: Powering the Electric Future ft. NEDC's Peter Lake","host":"Axios","date":"2026-04-14","time":"08:00","location":"Washington, DC","type":"briefing","city":"dc","link":"https://axiospoweringtheelectricfuture.splashthat.com/","notes":"Doors open 7:30 AM, program 8:00–9:00 AM. Grid modernization, AI energy demand, and electrification policy. Members of House Energy & Commerce and Science, Space & Technology committees featured."},
   {"id":"wsj-opinion-live-0414","name":"WSJ Opinion Live: America at 250","host":"WSJ Opinion / Dow Jones","date":"2026-04-14","time":"","location":"Washington, DC","type":"conference","city":"dc","link":"https://app.online.dowjones.com/e/er?utm_campaign=FY26Q3_20260317_WSJIndustry_WSJ%20Opinion%20Event_Good%20Company%20B_Text&utm_medium=email&utm_source=Eloqua&s=716031822&lid=30959&elqTrackId=D69EC2902529144F8E6918514C86FA65&elq=e1e70271c03f408099f615234c52d365&elqaid=22314&elqat=1","notes":"Two-day invite-only conference (Apr 14-15) on U.S. policy and governance. Speakers include Rahm Emanuel, SandboxAQ CEO Jack Hidary. Invitations subject to review/approval. Relevant for cross-sector networking and NobleReach/Carta."},
-  {"id":"ayotte-reception-0511","name":"Reception for Gov. Kelly Ayotte with Jason Miyares","host":"Bobbie & Bill Kilberg","date":"2026-05-11","time":"18:00","location":"McLean, VA (address provided upon RSVP)","type":"fundraiser","city":"dc","link":"https://joevidulich.us17.list-manage.com/track/click?u=fff8588d34dfb06eaca4873e4&id=e98bc2ebfe&e=7d5b3a735b","notes":"6:00 PM VIP Roundtable | 6:45 PM General Reception. Special guest: former VA AG Jason Miyares. Contributions: $15,000/couple (Host, give or raise) | $5,000/couple (Sponsor) | $1,000/person (Attendee). Max individual $3,300 / couple $6,600. RSVP: Gretchen, gretchen@gretchenmoss.com, (703) 201-7776. Forwarded by Kimberley Fritts."},
-  {"id":"sullivan-freedom-award-0518","name":"2026 Freedom Award Celebration with Sen. Dan Sullivan","host":"Bradley Patrick Group / BPG LLC","date":"2026-05-18","time":"","location":"Washington, DC (details in full invite)","type":"fundraiser","city":"dc","link":"https://ok5sqpxab.cc.rs6.net/tn.jsp?f=0010yAkG6TkpfOpjwNBEc8G5aQOAXO0_8ed-Wjz35PWf5bGsdtZ-0p0pxzwvKfsMkIZbtvJnNscGs7j-H-JwhcxUYHkliKqa9P--LsKhI3EAWoCSL9eS75TI2QeAMNYyXPK7yHmLJupEETiG25nP9-i7VQp_WSDgkKeQT7Pm4xMa5twu0H6BPwwtxPTNMRmarr4_Z9pviBnznS5kZ0CnGuFvcE61aOI0h9aR1th2zEkocodTdLAwXKqfxYewurTh1WT&c=89R5W3tCTEMQFd6iJd2b5qfzCgkXWD_ohEKXbRDvMLmH0s2VtZ4PjQ==&ch=XopGjkpIwuXdkE8i3GZp0Rw5ggaq9wsFkBv3FingWj2gXCxYy87ZQQ==","notes":"Freedom Award Celebration hosted by Sen. Dan Sullivan (AK). RSVP: rsvp@bradleypatrickgroup.com. Venue and contribution levels in full invite (link above). Forwarded by Kimberley Fritts."},
-  {"id":"maloy-utah-retreat-0918","name":"Rep. Celeste Maloy: 3rd Annual 'Go West with Celeste' Southern Utah Retreat (w/ Rep. Stephanie Bice)","host":"District City Consulting","date":"2026-09-18","time":"","location":"Ivins, UT","type":"conference","city":"oot","link":"https://secure.anedot.com/celeste-for-congress-e7d62064-b5bc-442d-8205-1a832a49ecca/donate","notes":"Sep 18–20. Destination trip to Ivins, UT with special guest Rep. Bice. RSVP: RSVP@DistrictCityConsulting.com."},
-  {"id":"thompson-nemacolin-1016","name":"Rep. GT Thompson: 8th Annual Fall Weekend at Nemacolin (PA-15)","host":"District City Consulting","date":"2026-10-16","time":"","location":"Nemacolin, Farmington, PA","type":"conference","city":"oot","link":"https://secure.winred.com/glennthompson/reprise","notes":"Oct 16–18. Annual fall destination trip. RSVP: RSVP@DistrictCityConsulting.com."},
-  {"id":"dc-fintech-week-1013","name":"DC Fintech Week 2026","host":"DC Fintech Week","date":"2026-10-13","time":"","location":"Washington, DC","type":"conference","city":"dc","link":"","notes":"Four-day fintech conference, Oct 13–16. Relevant for Carta and any fintech/crypto/financial services clients."},
   {"id":"fulcher-protect-majority-0415","name":"Rep. Russ Fulcher 'Protect the Majority' Reception (ID-01)","host":"Tholander Consulting","date":"2026-04-15","time":"17:30","location":"Washington, DC (location provided upon RSVP)","type":"fundraiser","city":"dc","link":"","notes":"5:30 PM. Special guest: Chairman Jason Smith. RSVP/contact: Davis Boyer, Davis@tholanderconsulting.com, (562) 544-9147. Forwarded by Kimberley Fritts."},
   {"id":"fulcher-breakfast-0416","name":"Rep. Russ Fulcher April Breakfast Club (ID-01)","host":"Tholander Consulting","date":"2026-04-16","time":"08:00","location":"Capitol Hill Club, Washington, DC","type":"fundraiser","city":"dc","link":"","notes":"8:00 AM. RSVP/contact: Davis Boyer, Davis@tholanderconsulting.com, (562) 544-9147. Forwarded by Kimberley Fritts."},
   {"id":"rogers-cigars-0416","name":"Cigars & Bourbon with Rep. Hal Rogers & Rep. Tom Cole (KY-05 / OK-04)","host":"District City Consulting","date":"2026-04-16","time":"17:30","location":"Washington, DC (details on request)","type":"fundraiser","city":"dc","link":"https://secure.winred.com/halrogers/donate-hd","notes":"5:30–6:30 PM ET. RSVP: RSVP@DistrictCityConsulting.com."},
   {"id":"goldman-johnson-steak-0416","name":"Texas Steak Dinner with Rep. Craig Goldman & Speaker Mike Johnson","host":"Lilly & Company / National Cattlemen's Beef Association","date":"2026-04-16","time":"18:30","location":"National Cattlemen's Beef Association Rooftop, 1275 Pennsylvania Ave NW, Washington, DC 20004","type":"fundraiser","city":"dc","link":"","notes":"Beef flown in from TX-12. Rooftop dinner with Congressman Craig Goldman and special guest Speaker Mike Johnson. RSVP: Meghan Dooley, meghan@lillyandcompany.com / (817) 760-6083. Forwarded by Kimberley Fritts."},
   {"id":"mackenzie-lunch-0420","name":"Lunch with Rep. Ryan Mackenzie (PA-07)","host":"District City Consulting","date":"2026-04-20","time":"12:00","location":"Washington, DC (details on request)","type":"fundraiser","city":"dc","link":"https://secure.winred.com/mackenzie-for-congress/dcc","notes":"12:00–1:00 PM. RSVP: RSVP@DistrictCityConsulting.com."},
   {"id":"thompson-lunch-0421","name":"Lunch with Rep. GT Thompson — 'Lunch with the Chairman' (PA-15)","host":"District City Consulting","date":"2026-04-21","time":"12:30","location":"Washington, DC (details on request)","type":"fundraiser","city":"dc","link":"https://secure.winred.com/glennthompson/reprise","notes":"12:30–1:30 PM ET. Primary: May 19. RSVP: RSVP@DistrictCityConsulting.com."},
+  {"id":"politico-health-0421","name":"POLITICO's Health Care Summit","host":"POLITICO Live","date":"2026-04-21","time":"","location":"Washington, DC (in-person + virtual)","type":"conference","city":"dc","link":"https://www.politico.com/events/2026/04/21/politicos-health-care-summit-00001641","notes":"Annual health care summit. Highly relevant for Alliance for Care at Home client.","hybrid":true},
   {"id":"rogers-derby-party-0422","name":"Rep. Hal Rogers Annual Pre-Derby Party (hosted by Will Smith)","host":"District City Consulting","date":"2026-04-22","time":"18:30","location":"Washington, DC (details on request)","type":"reception","city":"dc","link":"https://secure.winred.com/halrogers/donate-hd","notes":"6:30–8:00 PM ET. Special guest list coming soon. RSVP: RSVP@DistrictCityConsulting.com."},
-  {"id":"politico-health-0421","name":"POLITICO's Health Care Summit","host":"POLITICO Live","date":"2026-04-21","time":"","location":"Washington, DC (in-person + virtual)","type":"conference","city":"dc","link":"https://www.politico.com/events/2026/04/21/politicos-health-care-summit-00001641","notes":"Annual health care summit. Highly relevant for Alliance for Care at Home client.","hybrid":true}
+  {"id":"mackenzie-spring-getaway-0429","name":"Rep. Ryan Mackenzie Inaugural Spring Get Away (w/ Rep. Guy Reschenthaler)","host":"District City Consulting","date":"2026-04-29","time":"","location":"Farmington, PA","type":"conference","city":"oot","link":"https://secure.winred.com/mackenzie-for-congress/dcc","notes":"Apr 29–May 1. Destination trip to Farmington, PA with special guest Rep. Reschenthaler. RSVP: RSVP@DistrictCityConsulting.com."},
+  {"id":"ayotte-reception-0511","name":"Reception for Gov. Kelly Ayotte with Jason Miyares","host":"Bobbie & Bill Kilberg","date":"2026-05-11","time":"18:00","location":"McLean, VA (address provided upon RSVP)","type":"fundraiser","city":"dc","link":"https://joevidulich.us17.list-manage.com/track/click?u=fff8588d34dfb06eaca4873e4&id=e98bc2ebfe&e=7d5b3a735b","notes":"6:00 PM VIP Roundtable | 6:45 PM General Reception. Special guest: former VA AG Jason Miyares. Contributions: $15,000/couple (Host, give or raise) | $5,000/couple (Sponsor) | $1,000/person (Attendee). Max individual $3,300 / couple $6,600. RSVP: Gretchen, gretchen@gretchenmoss.com, (703) 201-7776. Forwarded by Kimberley Fritts."},
+  {"id":"cres-energy-summit-0514","name":"CRES Energy Leadership Summit","host":"Citizens for Responsible Energy Solutions (CRES)","date":"2026-05-14","time":"09:30","location":"Royal Sonesta Capitol Hill, 20 Massachusetts Ave NW, Washington, DC","type":"conference","city":"dc","link":"https://www.cresenergy.events/xxoK43","notes":"Second annual summit with Trump Administration officials, Members of Congress, and energy sector leaders. 9:30am-4:30pm panels + 4:30-6:30pm reception. Sponsors include Constellation, Invenergy, PG&E, ExxonMobil, Chevron, GE Vernova. Forwarded by Gina Mahony — worth attending per her note."},
+  {"id":"sullivan-freedom-award-0518","name":"2026 Freedom Award Celebration with Sen. Dan Sullivan","host":"Bradley Patrick Group / BPG LLC","date":"2026-05-18","time":"","location":"Washington, DC (details in full invite)","type":"fundraiser","city":"dc","link":"https://ok5sqpxab.cc.rs6.net/tn.jsp?f=0010yAkG6TkpfOpjwNBEc8G5aQOAXO0_8ed-Wjz35PWf5bGsdtZ-0p0pxzwvKfsMkIZbtvJnNscGs7j-H-JwhcxUYHkliKqa9P--LsKhI3EAWoCSL9eS75TI2QeAMNYyXPK7yHmLJupEETiG25nP9-i7VQp_WSDgkKeQT7Pm4xMa5twu0H6BPwwtxPTNMRmarr4_Z9pviBnznS5kZ0CnGuFvcE61aOI0h9aR1th2zEkocodTdLAwXKqfxYewurTh1WT&c=89R5W3tCTEMQFd6iJd2b5qfzCgkXWD_ohEKXbRDvMLmH0s2VtZ4PjQ==&ch=XopGjkpIwuXdkE8i3GZp0Rw5ggaq9wsFkBv3FingWj2gXCxYy87ZQQ==","notes":"Freedom Award Celebration hosted by Sen. Dan Sullivan (AK). RSVP: rsvp@bradleypatrickgroup.com. Venue and contribution levels in full invite (link above). Forwarded by Kimberley Fritts."},
+  {"id":"maloy-utah-retreat-0918","name":"Rep. Celeste Maloy: 3rd Annual 'Go West with Celeste' Southern Utah Retreat (w/ Rep. Stephanie Bice)","host":"District City Consulting","date":"2026-09-18","time":"","location":"Ivins, UT","type":"conference","city":"oot","link":"https://secure.anedot.com/celeste-for-congress-e7d62064-b5bc-442d-8205-1a832a49ecca/donate","notes":"Sep 18–20. Destination trip to Ivins, UT with special guest Rep. Bice. RSVP: RSVP@DistrictCityConsulting.com."},
+  {"id":"thompson-nemacolin-1016","name":"Rep. GT Thompson: 8th Annual Fall Weekend at Nemacolin (PA-15)","host":"District City Consulting","date":"2026-10-16","time":"","location":"Nemacolin, Farmington, PA","type":"conference","city":"oot","link":"https://secure.winred.com/glennthompson/reprise","notes":"Oct 16–18. Annual fall destination trip. RSVP: RSVP@DistrictCityConsulting.com."},
+  {"id":"dc-fintech-week-1013","name":"DC Fintech Week 2026","host":"DC Fintech Week","date":"2026-10-13","time":"","location":"Washington, DC","type":"conference","city":"dc","link":"","notes":"Four-day fintech conference, Oct 13–16. Relevant for Carta and any fintech/crypto/financial services clients."}
 ];
 const now = new Date().toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
 document.getElementById('last-updated').textContent = `Updated ${now}`;
 render();
 </script>
-
 <style>
   #pw-gate {
     position: fixed; inset: 0; z-index: 9999;
@@ -628,7 +570,6 @@ render();
     display: none;
   }
 </style>
-
 <div id="pw-gate">
   <div id="pw-box">
     <h2>Cogent Events Dashboard</h2>
@@ -638,12 +579,10 @@ render();
     <div id="pw-error">Incorrect password. Try again.</div>
   </div>
 </div>
-
 <script>
   (function() {
     const HASH = '7f4df84b7db7ba76e4bcfc50a56c7f9e2a3c5d8f1e0a2b4c6d8e0f2a4b6c8d0';
     function sha256(str) {
-      // Simple password check — compare directly (hashed at build time)
       return str === atob('TTI1NTBTdHJlZXQhIQ==');
     }
     const gate = document.getElementById('pw-gate');
@@ -651,11 +590,9 @@ render();
     const btn = document.getElementById('pw-submit');
     const err = document.getElementById('pw-error');
     const SESSION_KEY = 'cse_auth';
-
     if (sessionStorage.getItem(SESSION_KEY) === '1') {
       gate.style.display = 'none';
     }
-
     function tryPassword() {
       if (sha256(input.value)) {
         sessionStorage.setItem(SESSION_KEY, '1');
@@ -667,7 +604,6 @@ render();
         input.focus();
       }
     }
-
     btn.addEventListener('click', tryPassword);
     input.addEventListener('keydown', function(e) {
       if (e.key === 'Enter') tryPassword();
